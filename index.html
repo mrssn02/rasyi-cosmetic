@@ -1,0 +1,1032 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rasyi Cosmetik — Skincare & Makeup</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #fff7fb;
+      --surface: rgba(255,255,255,.78);
+      --surface2: rgba(255,255,255,.92);
+      --text: #1f1a1d;
+      --muted: #6b5f66;
+      --pink: #ff4fa3;
+      --pink2:#ff7fbe;
+      --pink3:#ffd0e6;
+      --line: rgba(36, 8, 24, .10);
+      --shadow: 0 18px 45px rgba(255,79,163,.18);
+      --shadow2: 0 14px 30px rgba(30,10,20,.10);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 15% 10%, rgba(255,79,163,.20), transparent 60%),
+        radial-gradient(900px 600px at 85% 0%, rgba(255,127,190,.18), transparent 62%),
+        radial-gradient(900px 600px at 70% 85%, rgba(255,208,230,.40), transparent 65%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    button{font-family:inherit}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(255,247,251,.90), rgba(255,247,251,.65));
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background:
+        radial-gradient(10px 10px at 30% 35%, rgba(255,255,255,.85), transparent 70%),
+        linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 10px 26px rgba(255,79,163,.30);
+      border:1px solid rgba(255,255,255,.55);
+    }
+    .brand span{font-size:15px}
+    .brand small{
+      display:block; font-weight:600; color:var(--muted); font-size:12px; margin-top:1px;
+      letter-spacing:.1px;
+    }
+
+    .menu{
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .menu a{
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+      padding:10px 10px;
+      border-radius:12px;
+    }
+    .menu a:hover{background:rgba(255,79,163,.10); color:var(--text)}
+    .cta{
+      display:flex; align-items:center; gap:10px;
+    }
+
+    .btn{
+      border:1px solid var(--line);
+      background: var(--surface);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:14px;
+      font-weight:700;
+      font-size:13px;
+      box-shadow: 0 10px 18px rgba(20,10,15,.05);
+      cursor:pointer;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      display:inline-flex; align-items:center; gap:10px;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: var(--shadow2)}
+    .btn.primary{
+      border:1px solid rgba(255,255,255,.55);
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      color:#fff;
+      box-shadow: var(--shadow);
+    }
+    .btn.primary:hover{transform: translateY(-1px) scale(1.01)}
+    .btn.icon{
+      padding:10px 12px;
+      min-width:44px;
+      justify-content:center;
+      position:relative;
+    }
+    .badge{
+      position:absolute;
+      top:-6px; right:-6px;
+      background:#111;
+      color:#fff;
+      font-size:11px;
+      font-weight:800;
+      width:20px; height:20px;
+      border-radius:999px;
+      display:grid; place-items:center;
+      border:2px solid rgba(255,255,255,.9);
+      box-shadow: 0 12px 20px rgba(0,0,0,.18);
+    }
+
+    /* Hero */
+    .hero{
+      padding:34px 0 8px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .card{
+      background: var(--surface);
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: 0 16px 40px rgba(30,10,20,.08);
+    }
+    .heroMain{
+      padding:26px;
+      position:relative;
+      overflow:hidden;
+      min-height: 340px;
+    }
+    .heroMain:before{
+      content:"";
+      position:absolute; inset:-80px -90px auto auto;
+      width:300px; height:300px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.85), transparent 55%),
+                  radial-gradient(circle at 60% 60%, rgba(255,79,163,.40), transparent 60%),
+                  radial-gradient(circle at 40% 70%, rgba(255,127,190,.32), transparent 65%);
+      filter: blur(0px);
+      transform: rotate(12deg);
+      opacity:.95;
+      pointer-events:none;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      font-weight:800; font-size:12px;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,79,163,.12);
+      border:1px solid rgba(255,79,163,.22);
+      color: #5a0f35;
+    }
+    .pill .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      box-shadow: 0 8px 18px rgba(255,79,163,.35);
+    }
+
+    h1{
+      margin:14px 0 10px;
+      font-size: 40px;
+      line-height:1.08;
+      letter-spacing: -0.7px;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-weight:600;
+      line-height:1.6;
+      max-width: 56ch;
+    }
+
+    .heroActions{
+      margin-top:18px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .infoRow{
+      margin-top:18px;
+      display:flex; gap:14px; flex-wrap:wrap;
+      color:var(--muted);
+      font-size:13px;
+      font-weight:650;
+    }
+    .infoRow .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(255,255,255,.55);
+      border:1px solid var(--line);
+    }
+
+    .heroSide{
+      padding:18px;
+      display:grid;
+      gap:12px;
+    }
+    .mini{
+      padding:16px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+      border:1px solid var(--line);
+      box-shadow: 0 12px 28px rgba(30,10,20,.08);
+    }
+    .mini h3{
+      margin:0 0 6px;
+      font-size:14px;
+      letter-spacing:-.2px;
+    }
+    .mini p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+      font-weight:600;
+    }
+
+    /* Sections */
+    section{padding:22px 0}
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-size:20px;
+      letter-spacing:-.3px;
+    }
+    .sectionHead p{
+      margin:0;
+      color:var(--muted);
+      font-weight:650;
+      font-size:13px;
+      line-height:1.55;
+      max-width:70ch;
+    }
+
+    /* Products */
+    .products{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+    }
+    .product{
+      padding:14px;
+      border-radius: 22px;
+      background: var(--surface2);
+      border:1px solid var(--line);
+      box-shadow: 0 14px 28px rgba(30,10,20,.07);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      overflow:hidden;
+      position:relative;
+      min-height: 220px;
+    }
+    .thumb{
+      height:110px;
+      border-radius: 18px;
+      border:1px solid rgba(255,79,163,.16);
+      background:
+        radial-gradient(120px 80px at 30% 40%, rgba(255,255,255,.9), transparent 60%),
+        linear-gradient(135deg, rgba(255,79,163,.32), rgba(255,127,190,.24)),
+        radial-gradient(160px 90px at 70% 80%, rgba(255,208,230,.55), transparent 60%);
+      box-shadow: 0 12px 26px rgba(255,79,163,.10);
+      position:relative;
+      overflow:hidden;
+    }
+    .thumb:after{
+      content:"";
+      position:absolute; inset:auto -40px -55px auto;
+      width:160px; height:160px;
+      border-radius: 40px;
+      background: radial-gradient(circle at 30% 35%, rgba(255,255,255,.8), transparent 55%),
+                  linear-gradient(135deg, rgba(255,79,163,.45), rgba(255,127,190,.30));
+      transform: rotate(12deg);
+      opacity:.85;
+    }
+
+    .product .name{
+      margin:0;
+      font-weight:800;
+      font-size:14px;
+      letter-spacing:-.2px;
+    }
+    .product .desc{
+      margin:0;
+      color:var(--muted);
+      font-size:12.5px;
+      line-height:1.5;
+      font-weight:650;
+    }
+    .priceRow{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-top:auto;
+    }
+    .price{
+      font-weight:900;
+      letter-spacing:-.2px;
+      color:#3a1026;
+    }
+    .old{
+      color:rgba(107,95,102,.85);
+      text-decoration: line-through;
+      font-weight:700;
+      font-size:12px;
+      margin-left:6px;
+    }
+    .chip{
+      font-size:11px;
+      font-weight:900;
+      padding:7px 10px;
+      border-radius:999px;
+      background: rgba(255,79,163,.12);
+      border:1px solid rgba(255,79,163,.20);
+      color:#5a0f35;
+    }
+
+    /* Offer banner */
+    .offer{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap:14px;
+      align-items:center;
+      padding:18px;
+      border-radius: var(--radius2);
+      background: linear-gradient(135deg, rgba(255,79,163,.18), rgba(255,255,255,.72));
+      border:1px solid rgba(255,79,163,.20);
+      box-shadow: var(--shadow2);
+    }
+    .offer h3{margin:0 0 6px; font-size:16px; letter-spacing:-.25px}
+    .offer p{margin:0; color:var(--muted); font-weight:650; font-size:13px; line-height:1.55}
+
+    /* Testimonials + FAQ */
+    .grid2{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+    }
+    .quote{
+      padding:16px;
+      border-radius: 22px;
+      background: var(--surface2);
+      border:1px solid var(--line);
+      box-shadow: 0 14px 26px rgba(30,10,20,.06);
+    }
+    .quote p{margin:0; color:var(--muted); font-weight:650; line-height:1.65}
+    .quote b{color:var(--text)}
+    .quote .who{margin-top:10px; display:flex; justify-content:space-between; gap:10px; color:#4a1a31; font-weight:900; font-size:13px}
+    details{
+      background: var(--surface2);
+      border:1px solid var(--line);
+      border-radius: 18px;
+      padding:12px 14px;
+      box-shadow: 0 12px 24px rgba(30,10,20,.05);
+    }
+    details summary{
+      cursor:pointer;
+      font-weight:900;
+      color:#3a1026;
+      outline:none;
+    }
+    details p{margin:10px 0 0; color:var(--muted); font-weight:650; line-height:1.6; font-size:13px}
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .contact .box{
+      padding:18px;
+      border-radius: var(--radius2);
+      background: var(--surface2);
+      border:1px solid var(--line);
+      box-shadow: 0 14px 28px rgba(30,10,20,.06);
+    }
+    .kv{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+      color:var(--muted);
+      font-weight:650;
+      font-size:13px;
+      line-height:1.5;
+    }
+    .kv div{
+      padding:12px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.55);
+      border:1px solid var(--line);
+    }
+    .mapLink{
+      display:inline-flex; align-items:center; gap:10px;
+      margin-top:12px;
+    }
+
+    /* Footer */
+    footer{
+      padding:26px 0 40px;
+      color:var(--muted);
+      font-weight:650;
+      font-size:13px;
+    }
+    .footerRow{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      padding-top:14px;
+      border-top: 1px solid var(--line);
+    }
+
+    /* Cart Drawer */
+    .drawerBack{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.28);
+      opacity:0; pointer-events:none;
+      transition: opacity .18s ease;
+      z-index:100;
+    }
+    .drawer{
+      position:fixed; top:0; right:0; height:100%;
+      width:min(420px, 92vw);
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      border-left:1px solid var(--line);
+      box-shadow: -22px 0 60px rgba(0,0,0,.14);
+      transform: translateX(105%);
+      transition: transform .22s ease;
+      z-index:101;
+      display:flex;
+      flex-direction:column;
+    }
+    .drawer.open{transform: translateX(0)}
+    .drawerBack.open{opacity:1; pointer-events:auto}
+
+    .drawerHead{
+      padding:16px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      border-bottom:1px solid var(--line);
+    }
+    .drawerHead b{font-size:14px}
+    .drawerBody{padding:14px 16px; overflow:auto; display:grid; gap:10px}
+    .item{
+      display:grid; grid-template-columns: 50px 1fr auto;
+      gap:10px;
+      align-items:center;
+      padding:12px;
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.75);
+    }
+    .itemThumb{
+      width:50px; height:50px; border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255,79,163,.32), rgba(255,127,190,.22));
+      border:1px solid rgba(255,79,163,.18);
+    }
+    .item h4{margin:0; font-size:13px; letter-spacing:-.2px}
+    .item small{color:var(--muted); font-weight:700}
+    .qty{
+      display:flex; align-items:center; gap:8px;
+      font-weight:900;
+    }
+    .qty button{
+      width:30px; height:30px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      cursor:pointer;
+      font-weight:900;
+    }
+    .drawerFoot{
+      margin-top:auto;
+      padding:14px 16px 16px;
+      border-top:1px solid var(--line);
+      display:grid; gap:10px;
+    }
+    .totalRow{
+      display:flex; align-items:center; justify-content:space-between;
+      font-weight:900;
+      color:#3a1026;
+    }
+    .hint{
+      color:var(--muted);
+      font-weight:650;
+      font-size:12.5px;
+      line-height:1.5;
+    }
+
+    /* WhatsApp Floating */
+    .waFloat{
+      position:fixed;
+      right:18px; bottom:18px;
+      z-index:80;
+      display:flex; align-items:center; gap:10px;
+      padding:12px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pink), var(--pink2));
+      color:#fff;
+      font-weight:900;
+      box-shadow: 0 18px 50px rgba(255,79,163,.34);
+      border: 1px solid rgba(255,255,255,.55);
+      cursor:pointer;
+      user-select:none;
+    }
+    .waIcon{
+      width:34px; height:34px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.22);
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.35);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns: 1fr}
+      h1{font-size:36px}
+      .products{grid-template-columns: repeat(2, 1fr)}
+      .contact{grid-template-columns: 1fr}
+      .grid2{grid-template-columns: 1fr}
+      .menu{display:none}
+    }
+    @media (max-width: 520px){
+      h1{font-size:32px}
+      .products{grid-template-columns: 1fr}
+      .waFloat span{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <span>Rasyi Cosmetik</span>
+            <small>Skincare • Makeup • Bodycare</small>
+          </div>
+        </a>
+
+        <nav class="menu" aria-label="Navigasi">
+          <a href="#produk">Produk</a>
+          <a href="#promo">Promo</a>
+          <a href="#testimoni">Testimoni</a>
+          <a href="#faq">FAQ</a>
+          <a href="#kontak">Kontak</a>
+        </nav>
+
+        <div class="cta">
+          <button class="btn icon" id="cartBtn" aria-label="Buka Keranjang" title="Keranjang">
+            🛍️
+            <span class="badge" id="cartCount">0</span>
+          </button>
+          <a class="btn primary" id="waTop" href="#" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <main id="top" class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <div class="card heroMain">
+          <div class="pill"><span class="dot"></span> Toko kosmetik pilihan untuk tampil makin percaya diri</div>
+          <h1>Belanja cantik jadi lebih mudah —<br/>langsung dari <span style="color:var(--pink)">Rasyi Cosmetik</span>.</h1>
+          <p class="sub">
+            Katalog rapi, tampilan elegan tema pink, tombol order WhatsApp, dan keranjang belanja sederhana.
+            Cocok untuk promosi toko & meningkatkan penjualan.
+          </p>
+
+          <div class="heroActions">
+            <a class="btn primary" href="#produk">✨ Lihat Produk</a>
+            <a class="btn" id="waHero" href="#" target="_blank" rel="noopener">📦 Order via WhatsApp</a>
+            <a class="btn" href="#kontak">📍 Lihat Lokasi</a>
+          </div>
+
+          <div class="infoRow">
+            <div class="tag">🚚 Bisa COD (opsional)</div>
+            <div class="tag">🎁 Paket hemat & promo</div>
+            <div class="tag">🧾 Struk & admin order</div>
+          </div>
+        </div>
+
+        <aside class="card heroSide" aria-label="Keunggulan">
+          <div class="mini">
+            <h3>🌸 Desain Premium Tema Pink</h3>
+            <p>Tampilan modern, bersih, dan terlihat “mahal” untuk menaikkan kepercayaan pelanggan.</p>
+          </div>
+          <div class="mini">
+            <h3>⚡ Cepat, Responsif, Mobile-First</h3>
+            <p>Nyaman dibuka di HP (yang paling sering dipakai pelanggan untuk belanja).</p>
+          </div>
+          <div class="mini">
+            <h3>💬 Order Otomatis ke WhatsApp</h3>
+            <p>Checkout membuat format pesan order rapi & langsung terkirim ke admin toko.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Products -->
+  <section id="produk">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2>Katalog Produk</h2>
+          <p>Contoh isi produk (placeholder). Nanti tinggal ganti nama, harga, foto, stok, kategori.</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn" data-filter="all">Semua</button>
+          <button class="btn" data-filter="skincare">Skincare</button>
+          <button class="btn" data-filter="makeup">Makeup</button>
+          <button class="btn" data-filter="bodycare">Bodycare</button>
+        </div>
+      </div>
+
+      <div class="products" id="productGrid"></div>
+    </div>
+  </section>
+
+  <!-- Promo -->
+  <section id="promo">
+    <div class="wrap">
+      <div class="offer">
+        <div>
+          <h3>🎀 Promo Launching Web: Paket Cantik Hemat</h3>
+          <p>
+            Diskon spesial untuk pembelian paket bundling. Checkout langsung ke WhatsApp dengan format order otomatis.
+          </p>
+        </div>
+        <a class="btn primary" id="waPromo" href="#" target="_blank" rel="noopener">Ambil Promo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials + FAQ -->
+  <section id="testimoni">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2>Testimoni Pelanggan</h2>
+          <p>Untuk penawaran ke toko, bagian ini bikin web terlihat “hidup” dan meyakinkan.</p>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="quote">
+          <p>“Order cepat banget, admin ramah, barangnya original. Packaging juga cantik!”</p>
+          <div class="who"><span>— Nadya</span><span>★★★★★</span></div>
+        </div>
+        <div class="quote">
+          <p>“Suka sama rekomendasinya, skincare cocok. Harga juga bersahabat.”</p>
+          <div class="who"><span>— Rani</span><span>★★★★★</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2>FAQ</h2>
+          <p>Pertanyaan yang sering ditanya pelanggan.</p>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <details>
+          <summary>Apakah produknya original?</summary>
+          <p>Kami menyediakan produk sesuai katalog toko. Detail brand & keaslian bisa ditambahkan di tiap produk.</p>
+        </details>
+        <details>
+          <summary>Bagaimana cara order?</summary>
+          <p>Pilih produk → tambah ke keranjang → checkout → otomatis membuat pesan order ke WhatsApp admin.</p>
+        </details>
+        <details>
+          <summary>Bisa kirim ke luar kota?</summary>
+          <p>Bisa. Metode pengiriman (JNE/J&T/SiCepat/dll) dapat ditambahkan sesuai kebutuhan toko.</p>
+        </details>
+        <details>
+          <summary>Apakah bisa pembayaran transfer?</summary>
+          <p>Bisa. Nanti kita tambahkan info rekening/QRIS dan alur konfirmasi pembayaran.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="kontak">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2>Kontak & Lokasi Toko</h2>
+          <p>Alamat dan WhatsApp sudah dipasang sesuai permintaan.</p>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="box">
+          <h3 style="margin:0 0 6px; letter-spacing:-.2px;">Rasyi Cosmetik</h3>
+          <p style="margin:0; color:var(--muted); font-weight:650; line-height:1.6;">
+            Jl. Moh. Yakub Lubis No.26, Tembung, Kec. Percut Sei Tuan, Kabupaten Deli Serdang, Sumatera Utara 20371
+          </p>
+
+          <div class="kv">
+            <div><b style="color:#3a1026;">WhatsApp:</b> <a href="#" id="waText" target="_blank" rel="noopener">081361390600</a></div>
+            <div><b style="color:#3a1026;">Jam:</b> 09.00 – 21.00 (bisa disesuaikan)</div>
+            <div><b style="color:#3a1026;">Layanan:</b> Order WA • Rekomendasi produk • Promo bundling</div>
+          </div>
+
+          <div class="mapLink">
+            <a class="btn" id="mapLink" href="#" target="_blank" rel="noopener">🗺️ Buka Google Maps</a>
+            <a class="btn primary" id="waContact" href="#" target="_blank" rel="noopener">💬 Chat Admin</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3 style="margin:0 0 6px; letter-spacing:-.2px;">Kenapa toko perlu website?</h3>
+          <p style="margin:0; color:var(--muted); font-weight:650; line-height:1.65;">
+            Website membuat toko terlihat profesional, mudah dibagikan lewat IG/TikTok, dan pelanggan bisa melihat katalog & promo tanpa chat panjang.
+          </p>
+          <div class="kv">
+            <div>✅ Katalog rapi & bisa dicari</div>
+            <div>✅ Tombol WA langsung order</div>
+            <div>✅ Meningkatkan trust pelanggan</div>
+            <div>✅ Siap untuk iklan & promosi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footerRow">
+        <div>© <span id="year"></span> Rasyi Cosmetik. All rights reserved.</div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn" href="#produk">Produk</a>
+          <a class="btn" href="#kontak">Kontak</a>
+          <button class="btn" id="toTop">⬆️ Ke Atas</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating -->
+  <a class="waFloat" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <span class="waIcon">💬</span>
+    <span>Chat WhatsApp</span>
+  </a>
+
+  <!-- Cart Drawer -->
+  <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-label="Keranjang">
+    <div class="drawerHead">
+      <b>Keranjang Belanja</b>
+      <button class="btn icon" id="closeCart" aria-label="Tutup">✕</button>
+    </div>
+
+    <div class="drawerBody" id="cartItems"></div>
+
+    <div class="drawerFoot">
+      <div class="totalRow">
+        <span>Total</span>
+        <span id="cartTotal">Rp0</span>
+      </div>
+      <div class="hint">Checkout akan membuat pesan order otomatis ke WhatsApp admin.</div>
+      <button class="btn primary" id="checkoutBtn">✅ Checkout via WhatsApp</button>
+      <button class="btn" id="clearBtn">🗑️ Kosongkan Keranjang</button>
+    </div>
+  </aside>
+
+  <script>
+    // ====== Config toko (sesuai permintaan user) ======
+    const STORE = {
+      name: "Rasyi Cosmetik",
+      whatsapp: "081361390600",
+      whatsappIntl: "6281361390600",
+      address: "Jl. Moh. Yakub Lubis No.26, Tembung, Kec. Percut Sei Tuan, Kabupaten Deli Serdang, Sumatera Utara 20371"
+    };
+
+    // Link WA helper
+    function waLink(message){
+      const base = "https://wa.me/" + STORE.whatsappIntl;
+      const text = encodeURIComponent(message || "");
+      return base + (text ? ("?text=" + text) : "");
+    }
+
+    // Google Maps search link
+    function mapsLink(address){
+      return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
+    }
+
+    // ====== Data produk contoh ======
+    const PRODUCTS = [
+      { id:"p1",  cat:"skincare", name:"Glow Serum Pink Bloom", desc:"Serum mencerahkan, lembap, dan bikin kulit tampak sehat.", price: 79000, old: 99000, badge:"Best Seller" },
+      { id:"p2",  cat:"skincare", name:"Gentle Cleanser Soft Foam", desc:"Pembersih lembut untuk harian, busa halus, tidak bikin ketarik.", price: 65000, old: 85000, badge:"New" },
+      { id:"p3",  cat:"makeup",   name:"Velvet Lip Cream Rosy", desc:"Tekstur velvet, ringan, warna rosy elegan untuk daily look.", price: 59000, old: 75000, badge:"Hot" },
+      { id:"p4",  cat:"makeup",   name:"Cushion Dewy Finish", desc:"Cover natural, tampilan dewy, tahan lama untuk acara & harian.", price: 129000, old: 159000, badge:"Promo" },
+      { id:"p5",  cat:"bodycare", name:"Body Lotion Pink Sakura", desc:"Aroma soft, melembapkan, bikin kulit terasa halus.", price: 72000, old: 90000, badge:"Hemat" },
+      { id:"p6",  cat:"bodycare", name:"Brightening Body Scrub", desc:"Scrub halus bantu angkat sel kulit mati, kulit jadi lebih cerah.", price: 69000, old: 89000, badge:"Limited" },
+      { id:"p7",  cat:"skincare", name:"Sunscreen UV Shield SPF50", desc:"Ringan, tidak lengket, nyaman dipakai re-apply.", price: 88000, old: 109000, badge:"Wajib" },
+      { id:"p8",  cat:"makeup",   name:"Blush On Sweet Pink", desc:"Pigmented tapi mudah diblend, bikin pipi segar natural.", price: 52000, old: 65000, badge:"Favorit" },
+    ];
+
+    // ====== Render produk ======
+    const grid = document.getElementById("productGrid");
+
+    function rupiah(n){
+      return new Intl.NumberFormat("id-ID", { style:"currency", currency:"IDR", maximumFractionDigits:0 }).format(n);
+    }
+
+    function productCard(p){
+      return `
+        <article class="product" data-cat="${p.cat}">
+          <div class="thumb" aria-hidden="true"></div>
+          <div class="chip">${p.badge}</div>
+          <h3 class="name">${p.name}</h3>
+          <p class="desc">${p.desc}</p>
+          <div class="priceRow">
+            <div>
+              <span class="price">${rupiah(p.price)}</span>
+              <span class="old">${rupiah(p.old)}</span>
+            </div>
+            <button class="btn primary" onclick="addToCart('${p.id}')">Tambah</button>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderProducts(filter="all"){
+      grid.innerHTML = PRODUCTS
+        .filter(p => filter==="all" ? true : p.cat===filter)
+        .map(productCard)
+        .join("");
+    }
+
+    // ====== Filter buttons ======
+    document.querySelectorAll("[data-filter]").forEach(btn=>{
+      btn.addEventListener("click", () => {
+        renderProducts(btn.dataset.filter);
+      });
+    });
+
+    // ====== Cart (localStorage) ======
+    const CART_KEY = "rasyi_cart_v1";
+
+    function getCart(){
+      try{ return JSON.parse(localStorage.getItem(CART_KEY)) || {}; }
+      catch(e){ return {}; }
+    }
+    function setCart(cart){
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      updateCartUI();
+    }
+    function addToCart(id){
+      const cart = getCart();
+      cart[id] = (cart[id] || 0) + 1;
+      setCart(cart);
+      openCart();
+    }
+    function inc(id){
+      const cart = getCart();
+      cart[id] = (cart[id] || 0) + 1;
+      setCart(cart);
+    }
+    function dec(id){
+      const cart = getCart();
+      cart[id] = (cart[id] || 0) - 1;
+      if(cart[id] <= 0) delete cart[id];
+      setCart(cart);
+    }
+    function clearCart(){
+      setCart({});
+    }
+
+    const cartBtn = document.getElementById("cartBtn");
+    const drawer = document.getElementById("drawer");
+    const back = document.getElementById("drawerBack");
+    const closeCartBtn = document.getElementById("closeCart");
+    const cartCount = document.getElementById("cartCount");
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+    const checkoutBtn = document.getElementById("checkoutBtn");
+    const clearBtn = document.getElementById("clearBtn");
+
+    function openCart(){
+      drawer.classList.add("open");
+      back.classList.add("open");
+    }
+    function closeCart(){
+      drawer.classList.remove("open");
+      back.classList.remove("open");
+    }
+    cartBtn.addEventListener("click", openCart);
+    closeCartBtn.addEventListener("click", closeCart);
+    back.addEventListener("click", closeCart);
+
+    function updateCartUI(){
+      const cart = getCart();
+      const ids = Object.keys(cart);
+
+      const count = ids.reduce((s,id)=>s + cart[id], 0);
+      cartCount.textContent = count;
+
+      if(ids.length === 0){
+        cartItems.innerHTML = `
+          <div class="quote" style="margin:0;">
+            <p><b>Keranjang masih kosong.</b><br/>Yuk pilih produk dulu ✨</p>
+          </div>
+        `;
+        cartTotal.textContent = rupiah(0);
+        return;
+      }
+
+      let total = 0;
+      cartItems.innerHTML = ids.map(id=>{
+        const p = PRODUCTS.find(x=>x.id===id);
+        const qty = cart[id];
+        const sub = p.price * qty;
+        total += sub;
+        return `
+          <div class="item">
+            <div class="itemThumb" aria-hidden="true"></div>
+            <div>
+              <h4>${p.name}</h4>
+              <small>${rupiah(p.price)} • Subtotal ${rupiah(sub)}</small>
+            </div>
+            <div class="qty">
+              <button onclick="dec('${id}')" aria-label="Kurangi">−</button>
+              <span>${qty}</span>
+              <button onclick="inc('${id}')" aria-label="Tambah">+</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      cartTotal.textContent = rupiah(total);
+    }
+
+    clearBtn.addEventListener("click", clearCart);
+
+    checkoutBtn.addEventListener("click", () => {
+      const cart = getCart();
+      const ids = Object.keys(cart);
+      if(ids.length === 0) return;
+
+      const lines = [];
+      lines.push(`Halo admin ${STORE.name} 👋`);
+      lines.push(`Saya mau order:`);
+      lines.push("");
+
+      let total = 0;
+      ids.forEach((id, idx) => {
+        const p = PRODUCTS.find(x=>x.id===id);
+        const qty = cart[id];
+        const sub = p.price * qty;
+        total += sub;
+        lines.push(`${idx+1}. ${p.name} x${qty} = ${rupiah(sub)}`);
+      });
+
+      lines.push("");
+      lines.push(`Total: ${rupiah(total)}`);
+      lines.push("");
+      lines.push(`Nama: `);
+      lines.push(`Alamat pengiriman: `);
+      lines.push(`Metode pengiriman: `);
+      lines.push(`Catatan: `);
+
+      window.open(waLink(lines.join("\n")), "_blank", "noopener");
+    });
+
+    // ====== Isi link WA & Maps di berbagai tombol ======
+    const msgDefault = `Halo admin ${STORE.name} 👋\nSaya mau tanya produk & promo hari ini.`;
+    const waAll = [
+      ["waTop", msgDefault],
+      ["waHero", `Halo admin ${STORE.name} 👋\nSaya mau order via website.`],
+      ["waPromo", `Halo admin ${STORE.name} 👋\nSaya mau ambil promo launching web.`],
+      ["waContact", msgDefault],
+      ["waFloat", msgDefault],
+      ["waText", msgDefault],
+    ];
+    waAll.forEach(([id,msg])=>{
+      const el = document.getElementById(id);
+      if(el) el.href = waLink(msg);
+    });
+
+    const mapEl = document.getElementById("mapLink");
+    mapEl.href = mapsLink(STORE.address);
+
+    // ====== Utils ======
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("toTop").addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
+
+    // init
+    renderProducts("all");
+    updateCartUI();
+  </script>
+</body>
+</html>
