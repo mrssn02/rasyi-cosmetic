@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rasyi Cosmetik — Skincare & Makeup</title>
 
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -41,7 +40,6 @@
         var(--bg);
       overflow-x:hidden;
     }
-
     a{color:inherit; text-decoration:none}
     button{font-family:inherit}
 
@@ -57,7 +55,6 @@
       padding:14px 0;
       gap:14px;
     }
-
     .brand{
       display:flex; align-items:center; gap:10px;
       font-weight:800;
@@ -77,9 +74,7 @@
       letter-spacing:.1px;
     }
 
-    .menu{
-      display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:flex-end;
-    }
+    .menu{display:flex; align-items:center; gap:16px; flex-wrap:wrap; justify-content:flex-end;}
     .menu a{
       color:var(--muted);
       font-weight:600;
@@ -88,9 +83,7 @@
       border-radius:12px;
     }
     .menu a:hover{background:rgba(255,79,163,.10); color:var(--text)}
-    .cta{
-      display:flex; align-items:center; gap:10px;
-    }
+    .cta{display:flex; align-items:center; gap:10px;}
 
     .btn{
       border:1px solid var(--line);
@@ -113,7 +106,6 @@
       color:#fff;
       box-shadow: var(--shadow);
     }
-    .btn.primary:hover{transform: translateY(-1px) scale(1.01)}
     .btn.icon{
       padding:10px 12px;
       min-width:44px;
@@ -135,9 +127,7 @@
     }
 
     /* Hero */
-    .hero{
-      padding:34px 0 8px;
-    }
+    .hero{padding:34px 0 8px;}
     .heroGrid{
       display:grid;
       grid-template-columns: 1.1fr .9fr;
@@ -150,24 +140,32 @@
       border-radius: var(--radius2);
       box-shadow: 0 16px 40px rgba(30,10,20,.08);
     }
+
+    /* ✅ Background gambar di atas (Hero) */
     .heroMain{
       padding:26px;
       position:relative;
       overflow:hidden;
       min-height: 340px;
+      background:
+        linear-gradient(135deg, rgba(255,247,251,.92), rgba(255,255,255,.70)),
+        url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=70");
+      background-size: cover;
+      background-position: center;
     }
+    /* overlay bokeh pink biar elegan */
     .heroMain:before{
       content:"";
-      position:absolute; inset:-80px -90px auto auto;
-      width:300px; height:300px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.85), transparent 55%),
-                  radial-gradient(circle at 60% 60%, rgba(255,79,163,.40), transparent 60%),
-                  radial-gradient(circle at 40% 70%, rgba(255,127,190,.32), transparent 65%);
-      filter: blur(0px);
-      transform: rotate(12deg);
-      opacity:.95;
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 420px at 15% 20%, rgba(255,79,163,.26), transparent 60%),
+        radial-gradient(700px 360px at 80% 10%, rgba(255,127,190,.22), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.20));
       pointer-events:none;
     }
+    /* pastikan isi hero di atas overlay */
+    .heroMain > *{position:relative; z-index:1;}
+
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       font-weight:800; font-size:12px;
@@ -182,12 +180,12 @@
       background: linear-gradient(135deg, var(--pink), var(--pink2));
       box-shadow: 0 8px 18px rgba(255,79,163,.35);
     }
-
     h1{
       margin:14px 0 10px;
       font-size: 40px;
       line-height:1.08;
       letter-spacing: -0.7px;
+      text-shadow: 0 10px 30px rgba(255,79,163,.10);
     }
     .sub{
       margin:0;
@@ -196,13 +194,7 @@
       line-height:1.6;
       max-width: 56ch;
     }
-
-    .heroActions{
-      margin-top:18px;
-      display:flex; gap:10px; flex-wrap:wrap;
-      align-items:center;
-    }
-
+    .heroActions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
     .infoRow{
       margin-top:18px;
       display:flex; gap:14px; flex-wrap:wrap;
@@ -214,15 +206,12 @@
       display:inline-flex; align-items:center; gap:8px;
       padding:10px 12px;
       border-radius:14px;
-      background: rgba(255,255,255,.55);
+      background: rgba(255,255,255,.65);
       border:1px solid var(--line);
+      backdrop-filter: blur(8px);
     }
 
-    .heroSide{
-      padding:18px;
-      display:grid;
-      gap:12px;
-    }
+    .heroSide{padding:18px; display:grid; gap:12px;}
     .mini{
       padding:16px;
       border-radius: 22px;
@@ -230,45 +219,19 @@
       border:1px solid var(--line);
       box-shadow: 0 12px 28px rgba(30,10,20,.08);
     }
-    .mini h3{
-      margin:0 0 6px;
-      font-size:14px;
-      letter-spacing:-.2px;
-    }
-    .mini p{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.55;
-      font-weight:600;
-    }
+    .mini h3{margin:0 0 6px; font-size:14px; letter-spacing:-.2px;}
+    .mini p{margin:0; color:var(--muted); font-size:13px; line-height:1.55; font-weight:600;}
 
-    /* Sections */
     section{padding:22px 0}
     .sectionHead{
       display:flex; align-items:flex-end; justify-content:space-between; gap:14px; flex-wrap:wrap;
       margin-bottom:12px;
     }
-    .sectionHead h2{
-      margin:0;
-      font-size:20px;
-      letter-spacing:-.3px;
-    }
-    .sectionHead p{
-      margin:0;
-      color:var(--muted);
-      font-weight:650;
-      font-size:13px;
-      line-height:1.55;
-      max-width:70ch;
-    }
+    .sectionHead h2{margin:0; font-size:20px; letter-spacing:-.3px;}
+    .sectionHead p{margin:0; color:var(--muted); font-weight:650; font-size:13px; line-height:1.55; max-width:70ch;}
 
     /* Products */
-    .products{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:14px;
-    }
+    .products{display:grid; grid-template-columns: repeat(4, 1fr); gap:14px;}
     .product{
       padding:14px;
       border-radius: 22px;
@@ -280,71 +243,38 @@
       gap:10px;
       overflow:hidden;
       position:relative;
-      min-height: 220px;
-    }
-    .thumb{
-      height:110px;
-      border-radius: 18px;
-      border:1px solid rgba(255,79,163,.16);
-      background:
-        radial-gradient(120px 80px at 30% 40%, rgba(255,255,255,.9), transparent 60%),
-        linear-gradient(135deg, rgba(255,79,163,.32), rgba(255,127,190,.24)),
-        radial-gradient(160px 90px at 70% 80%, rgba(255,208,230,.55), transparent 60%);
-      box-shadow: 0 12px 26px rgba(255,79,163,.10);
-      position:relative;
-      overflow:hidden;
-    }
-    .thumb:after{
-      content:"";
-      position:absolute; inset:auto -40px -55px auto;
-      width:160px; height:160px;
-      border-radius: 40px;
-      background: radial-gradient(circle at 30% 35%, rgba(255,255,255,.8), transparent 55%),
-                  linear-gradient(135deg, rgba(255,79,163,.45), rgba(255,127,190,.30));
-      transform: rotate(12deg);
-      opacity:.85;
+      min-height: 250px;
     }
 
-    .product .name{
-      margin:0;
-      font-weight:800;
-      font-size:14px;
-      letter-spacing:-.2px;
+    /* ✅ Gambar produk (pakai <img>) */
+    .thumbImg{
+      width:100%;
+      height:130px;
+      border-radius: 18px;
+      object-fit: cover;
+      border:1px solid rgba(255,79,163,.16);
+      box-shadow: 0 12px 26px rgba(255,79,163,.10);
+      display:block;
     }
-    .product .desc{
-      margin:0;
-      color:var(--muted);
-      font-size:12.5px;
-      line-height:1.5;
-      font-weight:650;
-    }
-    .priceRow{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      margin-top:auto;
-    }
-    .price{
-      font-weight:900;
-      letter-spacing:-.2px;
-      color:#3a1026;
-    }
-    .old{
-      color:rgba(107,95,102,.85);
-      text-decoration: line-through;
-      font-weight:700;
-      font-size:12px;
-      margin-left:6px;
-    }
+
+    .product .name{margin:0; font-weight:800; font-size:14px; letter-spacing:-.2px;}
+    .product .desc{margin:0; color:var(--muted); font-size:12.5px; line-height:1.5; font-weight:650;}
+    .priceRow{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto;}
+    .price{font-weight:900; letter-spacing:-.2px; color:#3a1026;}
+    .old{color:rgba(107,95,102,.85); text-decoration: line-through; font-weight:700; font-size:12px; margin-left:6px;}
     .chip{
+      position:absolute;
+      top:12px; left:12px;
       font-size:11px;
       font-weight:900;
       padding:7px 10px;
       border-radius:999px;
-      background: rgba(255,79,163,.12);
-      border:1px solid rgba(255,79,163,.20);
+      background: rgba(255,79,163,.14);
+      border:1px solid rgba(255,79,163,.22);
       color:#5a0f35;
+      backdrop-filter: blur(10px);
     }
 
-    /* Offer banner */
     .offer{
       display:grid;
       grid-template-columns: 1fr auto;
@@ -359,10 +289,7 @@
     .offer h3{margin:0 0 6px; font-size:16px; letter-spacing:-.25px}
     .offer p{margin:0; color:var(--muted); font-weight:650; font-size:13px; line-height:1.55}
 
-    /* Testimonials + FAQ */
-    .grid2{
-      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
-    }
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
     .quote{
       padding:16px;
       border-radius: 22px;
@@ -373,6 +300,7 @@
     .quote p{margin:0; color:var(--muted); font-weight:650; line-height:1.65}
     .quote b{color:var(--text)}
     .quote .who{margin-top:10px; display:flex; justify-content:space-between; gap:10px; color:#4a1a31; font-weight:900; font-size:13px}
+
     details{
       background: var(--surface2);
       border:1px solid var(--line);
@@ -380,20 +308,10 @@
       padding:12px 14px;
       box-shadow: 0 12px 24px rgba(30,10,20,.05);
     }
-    details summary{
-      cursor:pointer;
-      font-weight:900;
-      color:#3a1026;
-      outline:none;
-    }
+    details summary{cursor:pointer; font-weight:900; color:#3a1026; outline:none;}
     details p{margin:10px 0 0; color:var(--muted); font-weight:650; line-height:1.6; font-size:13px}
 
-    /* Contact */
-    .contact{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-    }
+    .contact{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
     .contact .box{
       padding:18px;
       border-radius: var(--radius2);
@@ -401,33 +319,11 @@
       border:1px solid var(--line);
       box-shadow: 0 14px 28px rgba(30,10,20,.06);
     }
-    .kv{
-      display:grid;
-      gap:10px;
-      margin-top:10px;
-      color:var(--muted);
-      font-weight:650;
-      font-size:13px;
-      line-height:1.5;
-    }
-    .kv div{
-      padding:12px 12px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.55);
-      border:1px solid var(--line);
-    }
-    .mapLink{
-      display:inline-flex; align-items:center; gap:10px;
-      margin-top:12px;
-    }
+    .kv{display:grid; gap:10px; margin-top:10px; color:var(--muted); font-weight:650; font-size:13px; line-height:1.5;}
+    .kv div{padding:12px 12px; border-radius: 16px; background: rgba(255,255,255,.55); border:1px solid var(--line);}
+    .mapLink{display:inline-flex; align-items:center; gap:10px; margin-top:12px;}
 
-    /* Footer */
-    footer{
-      padding:26px 0 40px;
-      color:var(--muted);
-      font-weight:650;
-      font-size:13px;
-    }
+    footer{padding:26px 0 40px; color:var(--muted); font-weight:650; font-size:13px;}
     .footerRow{
       display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
       padding-top:14px;
@@ -457,18 +353,12 @@
     }
     .drawer.open{transform: translateX(0)}
     .drawerBack.open{opacity:1; pointer-events:auto}
-
-    .drawerHead{
-      padding:16px;
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      border-bottom:1px solid var(--line);
-    }
+    .drawerHead{padding:16px; display:flex; align-items:center; justify-content:space-between; gap:10px; border-bottom:1px solid var(--line);}
     .drawerHead b{font-size:14px}
     .drawerBody{padding:14px 16px; overflow:auto; display:grid; gap:10px}
     .item{
       display:grid; grid-template-columns: 50px 1fr auto;
-      gap:10px;
-      align-items:center;
+      gap:10px; align-items:center;
       padding:12px;
       border-radius: 18px;
       border:1px solid var(--line);
@@ -481,10 +371,7 @@
     }
     .item h4{margin:0; font-size:13px; letter-spacing:-.2px}
     .item small{color:var(--muted); font-weight:700}
-    .qty{
-      display:flex; align-items:center; gap:8px;
-      font-weight:900;
-    }
+    .qty{display:flex; align-items:center; gap:8px; font-weight:900;}
     .qty button{
       width:30px; height:30px;
       border-radius: 12px;
@@ -493,23 +380,9 @@
       cursor:pointer;
       font-weight:900;
     }
-    .drawerFoot{
-      margin-top:auto;
-      padding:14px 16px 16px;
-      border-top:1px solid var(--line);
-      display:grid; gap:10px;
-    }
-    .totalRow{
-      display:flex; align-items:center; justify-content:space-between;
-      font-weight:900;
-      color:#3a1026;
-    }
-    .hint{
-      color:var(--muted);
-      font-weight:650;
-      font-size:12.5px;
-      line-height:1.5;
-    }
+    .drawerFoot{margin-top:auto; padding:14px 16px 16px; border-top:1px solid var(--line); display:grid; gap:10px;}
+    .totalRow{display:flex; align-items:center; justify-content:space-between; font-weight:900; color:#3a1026;}
+    .hint{color:var(--muted); font-weight:650; font-size:12.5px; line-height:1.5;}
 
     /* WhatsApp Floating */
     .waFloat{
@@ -535,7 +408,6 @@
       border:1px solid rgba(255,255,255,.35);
     }
 
-    /* Responsive */
     @media (max-width: 980px){
       .heroGrid{grid-template-columns: 1fr}
       h1{font-size:36px}
@@ -553,7 +425,6 @@
 </head>
 
 <body>
-  <!-- Topbar -->
   <div class="topbar">
     <div class="wrap">
       <div class="nav">
@@ -575,18 +446,14 @@
 
         <div class="cta">
           <button class="btn icon" id="cartBtn" aria-label="Buka Keranjang" title="Keranjang">
-            🛍️
-            <span class="badge" id="cartCount">0</span>
+            🛍️ <span class="badge" id="cartCount">0</span>
           </button>
-          <a class="btn primary" id="waTop" href="#" target="_blank" rel="noopener">
-            💬 WhatsApp
-          </a>
+          <a class="btn primary" id="waTop" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Hero -->
   <main id="top" class="hero">
     <div class="wrap">
       <div class="heroGrid">
@@ -595,7 +462,6 @@
           <h1>Belanja cantik jadi lebih mudah —<br/>langsung dari <span style="color:var(--pink)">Rasyi Cosmetik</span>.</h1>
           <p class="sub">
             Katalog rapi, tampilan elegan tema pink, tombol order WhatsApp, dan keranjang belanja sederhana.
-            Cocok untuk promosi toko & meningkatkan penjualan.
           </p>
 
           <div class="heroActions">
@@ -629,13 +495,12 @@
     </div>
   </main>
 
-  <!-- Products -->
   <section id="produk">
     <div class="wrap">
       <div class="sectionHead">
         <div>
           <h2>Katalog Produk</h2>
-          <p>Contoh isi produk (placeholder). Nanti tinggal ganti nama, harga, foto, stok, kategori.</p>
+          <p>Ini contoh. Kamu bisa ganti gambar & produk sesuai katalog toko.</p>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <button class="btn" data-filter="all">Semua</button>
@@ -649,28 +514,24 @@
     </div>
   </section>
 
-  <!-- Promo -->
   <section id="promo">
     <div class="wrap">
       <div class="offer">
         <div>
           <h3>🎀 Promo Launching Web: Paket Cantik Hemat</h3>
-          <p>
-            Diskon spesial untuk pembelian paket bundling. Checkout langsung ke WhatsApp dengan format order otomatis.
-          </p>
+          <p>Checkout otomatis ke WhatsApp admin dengan format pesan rapi.</p>
         </div>
         <a class="btn primary" id="waPromo" href="#" target="_blank" rel="noopener">Ambil Promo</a>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials + FAQ -->
   <section id="testimoni">
     <div class="wrap">
       <div class="sectionHead">
         <div>
           <h2>Testimoni Pelanggan</h2>
-          <p>Untuk penawaran ke toko, bagian ini bikin web terlihat “hidup” dan meyakinkan.</p>
+          <p>Bagian ini bikin web terlihat lebih terpercaya saat penawaran ke toko.</p>
         </div>
       </div>
 
@@ -699,31 +560,30 @@
       <div class="grid2">
         <details>
           <summary>Apakah produknya original?</summary>
-          <p>Kami menyediakan produk sesuai katalog toko. Detail brand & keaslian bisa ditambahkan di tiap produk.</p>
+          <p>Kamu bisa tambahkan info original/garansi di detail produk sesuai kebutuhan toko.</p>
         </details>
         <details>
           <summary>Bagaimana cara order?</summary>
-          <p>Pilih produk → tambah ke keranjang → checkout → otomatis membuat pesan order ke WhatsApp admin.</p>
+          <p>Pilih produk → tambah ke keranjang → checkout → pesan otomatis terkirim ke WhatsApp admin.</p>
         </details>
         <details>
           <summary>Bisa kirim ke luar kota?</summary>
-          <p>Bisa. Metode pengiriman (JNE/J&T/SiCepat/dll) dapat ditambahkan sesuai kebutuhan toko.</p>
+          <p>Bisa. Metode pengiriman bisa ditambahkan (JNE/J&T/SiCepat/dll).</p>
         </details>
         <details>
           <summary>Apakah bisa pembayaran transfer?</summary>
-          <p>Bisa. Nanti kita tambahkan info rekening/QRIS dan alur konfirmasi pembayaran.</p>
+          <p>Bisa. Bisa ditambahkan info rekening/QRIS dan alur konfirmasi pembayaran.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="kontak">
     <div class="wrap">
       <div class="sectionHead">
         <div>
           <h2>Kontak & Lokasi Toko</h2>
-          <p>Alamat dan WhatsApp sudah dipasang sesuai permintaan.</p>
+          <p>Alamat dan WhatsApp sudah sesuai permintaan.</p>
         </div>
       </div>
 
@@ -749,7 +609,7 @@
         <div class="box">
           <h3 style="margin:0 0 6px; letter-spacing:-.2px;">Kenapa toko perlu website?</h3>
           <p style="margin:0; color:var(--muted); font-weight:650; line-height:1.65;">
-            Website membuat toko terlihat profesional, mudah dibagikan lewat IG/TikTok, dan pelanggan bisa melihat katalog & promo tanpa chat panjang.
+            Website membuat toko terlihat profesional, mudah dibagikan lewat IG/TikTok, dan pelanggan bisa lihat katalog tanpa chat panjang.
           </p>
           <div class="kv">
             <div>✅ Katalog rapi & bisa dicari</div>
@@ -775,27 +635,19 @@
     </div>
   </footer>
 
-  <!-- WhatsApp Floating -->
   <a class="waFloat" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
-    <span class="waIcon">💬</span>
-    <span>Chat WhatsApp</span>
+    <span class="waIcon">💬</span><span>Chat WhatsApp</span>
   </a>
 
-  <!-- Cart Drawer -->
   <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
   <aside class="drawer" id="drawer" aria-label="Keranjang">
     <div class="drawerHead">
       <b>Keranjang Belanja</b>
       <button class="btn icon" id="closeCart" aria-label="Tutup">✕</button>
     </div>
-
     <div class="drawerBody" id="cartItems"></div>
-
     <div class="drawerFoot">
-      <div class="totalRow">
-        <span>Total</span>
-        <span id="cartTotal">Rp0</span>
-      </div>
+      <div class="totalRow"><span>Total</span><span id="cartTotal">Rp0</span></div>
       <div class="hint">Checkout akan membuat pesan order otomatis ke WhatsApp admin.</div>
       <button class="btn primary" id="checkoutBtn">✅ Checkout via WhatsApp</button>
       <button class="btn" id="clearBtn">🗑️ Kosongkan Keranjang</button>
@@ -803,7 +655,6 @@
   </aside>
 
   <script>
-    // ====== Config toko (sesuai permintaan user) ======
     const STORE = {
       name: "Rasyi Cosmetik",
       whatsapp: "081361390600",
@@ -811,42 +662,87 @@
       address: "Jl. Moh. Yakub Lubis No.26, Tembung, Kec. Percut Sei Tuan, Kabupaten Deli Serdang, Sumatera Utara 20371"
     };
 
-    // Link WA helper
     function waLink(message){
       const base = "https://wa.me/" + STORE.whatsappIntl;
       const text = encodeURIComponent(message || "");
       return base + (text ? ("?text=" + text) : "");
     }
-
-    // Google Maps search link
     function mapsLink(address){
       return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
     }
 
-    // ====== Data produk contoh ======
+    // ✅ Tambahkan field img untuk gambar produk
     const PRODUCTS = [
-      { id:"p1",  cat:"skincare", name:"Glow Serum Pink Bloom", desc:"Serum mencerahkan, lembap, dan bikin kulit tampak sehat.", price: 79000, old: 99000, badge:"Best Seller" },
-      { id:"p2",  cat:"skincare", name:"Gentle Cleanser Soft Foam", desc:"Pembersih lembut untuk harian, busa halus, tidak bikin ketarik.", price: 65000, old: 85000, badge:"New" },
-      { id:"p3",  cat:"makeup",   name:"Velvet Lip Cream Rosy", desc:"Tekstur velvet, ringan, warna rosy elegan untuk daily look.", price: 59000, old: 75000, badge:"Hot" },
-      { id:"p4",  cat:"makeup",   name:"Cushion Dewy Finish", desc:"Cover natural, tampilan dewy, tahan lama untuk acara & harian.", price: 129000, old: 159000, badge:"Promo" },
-      { id:"p5",  cat:"bodycare", name:"Body Lotion Pink Sakura", desc:"Aroma soft, melembapkan, bikin kulit terasa halus.", price: 72000, old: 90000, badge:"Hemat" },
-      { id:"p6",  cat:"bodycare", name:"Brightening Body Scrub", desc:"Scrub halus bantu angkat sel kulit mati, kulit jadi lebih cerah.", price: 69000, old: 89000, badge:"Limited" },
-      { id:"p7",  cat:"skincare", name:"Sunscreen UV Shield SPF50", desc:"Ringan, tidak lengket, nyaman dipakai re-apply.", price: 88000, old: 109000, badge:"Wajib" },
-      { id:"p8",  cat:"makeup",   name:"Blush On Sweet Pink", desc:"Pigmented tapi mudah diblend, bikin pipi segar natural.", price: 52000, old: 65000, badge:"Favorit" },
+      {
+        id:"p1", cat:"skincare",
+        name:"Glow Serum Pink Bloom",
+        desc:"Serum mencerahkan, lembap, dan bikin kulit tampak sehat.",
+        price: 79000, old: 99000, badge:"Best Seller",
+        img:"https://images.unsplash.com/photo-1612810436541-336b5e0fcd97?auto=format&fit=crop&w=1200&q=70"
+      },
+      {
+        id:"p2", cat:"skincare",
+        name:"Gentle Cleanser Soft Foam",
+        desc:"Pembersih lembut untuk harian, busa halus, tidak bikin ketarik.",
+        price: 65000, old: 85000, badge:"New",
+        img:"https://images.unsplash.com/photo-1585232351009-aa87416fca90?auto=format&fit=crop&w=1200&q=70"
+      },
+      {
+        id:"p3", cat:"makeup",
+        name:"Velvet Lip Cream Rosy",
+        desc:"Tekstur velvet, ringan, warna rosy elegan untuk daily look.",
+        price: 59000, old: 75000, badge:"Hot",
+        img:"https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1200&q=70"
+      },
+      {
+        id:"p4", cat:"makeup",
+        name:"Cushion Dewy Finish",
+        desc:"Cover natural, tampilan dewy, tahan lama untuk acara & harian.",
+        price: 129000, old: 159000, badge:"Promo",
+        img:"https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=1200&q=70"
+      },
+      {
+        id:"p5", cat:"bodycare",
+        name:"Body Lotion Pink Sakura",
+        desc:"Aroma soft, melembapkan, bikin kulit terasa halus.",
+        price: 72000, old: 90000, badge:"Hemat",
+        img:"https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?auto=format&fit=crop&w=1200&q=70"
+      },
+      {
+        id:"p6", cat:"bodycare",
+        name:"Brightening Body Scrub",
+        desc:"Scrub halus bantu angkat sel kulit mati, kulit jadi lebih cerah.",
+        price: 69000, old: 89000, badge:"Limited",
+        img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=70"
+      },
+      {
+        id:"p7", cat:"skincare",
+        name:"Sunscreen UV Shield SPF50",
+        desc:"Ringan, tidak lengket, nyaman dipakai re-apply.",
+        price: 88000, old: 109000, badge:"Wajib",
+        img:"https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=1200&q=70"
+      },
+      {
+        id:"p8", cat:"makeup",
+        name:"Blush On Sweet Pink",
+        desc:"Pigmented tapi mudah diblend, bikin pipi segar natural.",
+        price: 52000, old: 65000, badge:"Favorit",
+        img:"https://images.unsplash.com/photo-1522338140505-4f0c4fadb8a0?auto=format&fit=crop&w=1200&q=70"
+      },
     ];
 
-    // ====== Render produk ======
     const grid = document.getElementById("productGrid");
 
     function rupiah(n){
       return new Intl.NumberFormat("id-ID", { style:"currency", currency:"IDR", maximumFractionDigits:0 }).format(n);
     }
 
+    // ✅ render pakai <img>
     function productCard(p){
       return `
         <article class="product" data-cat="${p.cat}">
-          <div class="thumb" aria-hidden="true"></div>
-          <div class="chip">${p.badge}</div>
+          <span class="chip">${p.badge}</span>
+          <img class="thumbImg" src="${p.img}" alt="${p.name}" loading="lazy" />
           <h3 class="name">${p.name}</h3>
           <p class="desc">${p.desc}</p>
           <div class="priceRow">
@@ -867,44 +763,18 @@
         .join("");
     }
 
-    // ====== Filter buttons ======
     document.querySelectorAll("[data-filter]").forEach(btn=>{
-      btn.addEventListener("click", () => {
-        renderProducts(btn.dataset.filter);
-      });
+      btn.addEventListener("click", () => renderProducts(btn.dataset.filter));
     });
 
-    // ====== Cart (localStorage) ======
+    // Cart
     const CART_KEY = "rasyi_cart_v1";
-
-    function getCart(){
-      try{ return JSON.parse(localStorage.getItem(CART_KEY)) || {}; }
-      catch(e){ return {}; }
-    }
-    function setCart(cart){
-      localStorage.setItem(CART_KEY, JSON.stringify(cart));
-      updateCartUI();
-    }
-    function addToCart(id){
-      const cart = getCart();
-      cart[id] = (cart[id] || 0) + 1;
-      setCart(cart);
-      openCart();
-    }
-    function inc(id){
-      const cart = getCart();
-      cart[id] = (cart[id] || 0) + 1;
-      setCart(cart);
-    }
-    function dec(id){
-      const cart = getCart();
-      cart[id] = (cart[id] || 0) - 1;
-      if(cart[id] <= 0) delete cart[id];
-      setCart(cart);
-    }
-    function clearCart(){
-      setCart({});
-    }
+    function getCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) || {}; } catch(e){ return {}; } }
+    function setCart(cart){ localStorage.setItem(CART_KEY, JSON.stringify(cart)); updateCartUI(); }
+    function addToCart(id){ const cart=getCart(); cart[id]=(cart[id]||0)+1; setCart(cart); openCart(); }
+    function inc(id){ const cart=getCart(); cart[id]=(cart[id]||0)+1; setCart(cart); }
+    function dec(id){ const cart=getCart(); cart[id]=(cart[id]||0)-1; if(cart[id]<=0) delete cart[id]; setCart(cart); }
+    function clearCart(){ setCart({}); }
 
     const cartBtn = document.getElementById("cartBtn");
     const drawer = document.getElementById("drawer");
@@ -916,41 +786,33 @@
     const checkoutBtn = document.getElementById("checkoutBtn");
     const clearBtn = document.getElementById("clearBtn");
 
-    function openCart(){
-      drawer.classList.add("open");
-      back.classList.add("open");
-    }
-    function closeCart(){
-      drawer.classList.remove("open");
-      back.classList.remove("open");
-    }
+    function openCart(){ drawer.classList.add("open"); back.classList.add("open"); }
+    function closeCart(){ drawer.classList.remove("open"); back.classList.remove("open"); }
     cartBtn.addEventListener("click", openCart);
     closeCartBtn.addEventListener("click", closeCart);
     back.addEventListener("click", closeCart);
 
     function updateCartUI(){
-      const cart = getCart();
-      const ids = Object.keys(cart);
+      const cart=getCart();
+      const ids=Object.keys(cart);
+      const count=ids.reduce((s,id)=>s+cart[id],0);
+      cartCount.textContent=count;
 
-      const count = ids.reduce((s,id)=>s + cart[id], 0);
-      cartCount.textContent = count;
-
-      if(ids.length === 0){
+      if(ids.length===0){
         cartItems.innerHTML = `
           <div class="quote" style="margin:0;">
             <p><b>Keranjang masih kosong.</b><br/>Yuk pilih produk dulu ✨</p>
-          </div>
-        `;
-        cartTotal.textContent = rupiah(0);
+          </div>`;
+        cartTotal.textContent=rupiah(0);
         return;
       }
 
-      let total = 0;
+      let total=0;
       cartItems.innerHTML = ids.map(id=>{
-        const p = PRODUCTS.find(x=>x.id===id);
-        const qty = cart[id];
-        const sub = p.price * qty;
-        total += sub;
+        const p=PRODUCTS.find(x=>x.id===id);
+        const qty=cart[id];
+        const sub=p.price*qty;
+        total+=sub;
         return `
           <div class="item">
             <div class="itemThumb" aria-hidden="true"></div>
@@ -963,31 +825,30 @@
               <span>${qty}</span>
               <button onclick="inc('${id}')" aria-label="Tambah">+</button>
             </div>
-          </div>
-        `;
+          </div>`;
       }).join("");
 
-      cartTotal.textContent = rupiah(total);
+      cartTotal.textContent=rupiah(total);
     }
 
     clearBtn.addEventListener("click", clearCart);
 
     checkoutBtn.addEventListener("click", () => {
-      const cart = getCart();
-      const ids = Object.keys(cart);
-      if(ids.length === 0) return;
+      const cart=getCart();
+      const ids=Object.keys(cart);
+      if(ids.length===0) return;
 
-      const lines = [];
+      const lines=[];
       lines.push(`Halo admin ${STORE.name} 👋`);
       lines.push(`Saya mau order:`);
       lines.push("");
 
-      let total = 0;
-      ids.forEach((id, idx) => {
-        const p = PRODUCTS.find(x=>x.id===id);
-        const qty = cart[id];
-        const sub = p.price * qty;
-        total += sub;
+      let total=0;
+      ids.forEach((id, idx)=>{
+        const p=PRODUCTS.find(x=>x.id===id);
+        const qty=cart[id];
+        const sub=p.price*qty;
+        total+=sub;
         lines.push(`${idx+1}. ${p.name} x${qty} = ${rupiah(sub)}`);
       });
 
@@ -1002,29 +863,23 @@
       window.open(waLink(lines.join("\n")), "_blank", "noopener");
     });
 
-    // ====== Isi link WA & Maps di berbagai tombol ======
     const msgDefault = `Halo admin ${STORE.name} 👋\nSaya mau tanya produk & promo hari ini.`;
-    const waAll = [
+    [
       ["waTop", msgDefault],
       ["waHero", `Halo admin ${STORE.name} 👋\nSaya mau order via website.`],
       ["waPromo", `Halo admin ${STORE.name} 👋\nSaya mau ambil promo launching web.`],
       ["waContact", msgDefault],
       ["waFloat", msgDefault],
       ["waText", msgDefault],
-    ];
-    waAll.forEach(([id,msg])=>{
-      const el = document.getElementById(id);
-      if(el) el.href = waLink(msg);
+    ].forEach(([id,msg])=>{
+      const el=document.getElementById(id);
+      if(el) el.href=waLink(msg);
     });
 
-    const mapEl = document.getElementById("mapLink");
-    mapEl.href = mapsLink(STORE.address);
-
-    // ====== Utils ======
+    document.getElementById("mapLink").href = mapsLink(STORE.address);
     document.getElementById("year").textContent = new Date().getFullYear();
     document.getElementById("toTop").addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
 
-    // init
     renderProducts("all");
     updateCartUI();
   </script>
