@@ -33,11 +33,14 @@
       margin:0;
       font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial;
       color:var(--text);
+      /* Background global pakai gambar + blend pink lembut */
       background:
+        url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=2200&q=60") center/cover fixed,
         radial-gradient(900px 600px at 15% 10%, rgba(255,79,163,.20), transparent 60%),
         radial-gradient(900px 600px at 85% 0%, rgba(255,127,190,.18), transparent 62%),
         radial-gradient(900px 600px at 70% 85%, rgba(255,208,230,.40), transparent 65%),
         var(--bg);
+      background-blend-mode: soft-light, normal, normal, normal, normal;
       overflow-x:hidden;
     }
     a{color:inherit; text-decoration:none}
@@ -47,7 +50,7 @@
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(12px);
-      background: linear-gradient(to bottom, rgba(255,247,251,.90), rgba(255,247,251,.65));
+      background: linear-gradient(to bottom, rgba(255,247,251,.92), rgba(255,247,251,.68));
       border-bottom: 1px solid var(--line);
     }
     .nav{
@@ -141,7 +144,7 @@
       box-shadow: 0 16px 40px rgba(30,10,20,.08);
     }
 
-    /* ✅ Background gambar di atas (Hero) */
+    /* Background gambar di atas (Hero) */
     .heroMain{
       padding:26px;
       position:relative;
@@ -149,21 +152,19 @@
       min-height: 340px;
       background:
         linear-gradient(135deg, rgba(255,247,251,.92), rgba(255,255,255,.70)),
-        url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=70");
+        url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1800&q=70");
       background-size: cover;
       background-position: center;
     }
-    /* overlay bokeh pink biar elegan */
     .heroMain:before{
       content:"";
       position:absolute; inset:0;
       background:
-        radial-gradient(900px 420px at 15% 20%, rgba(255,79,163,.26), transparent 60%),
+        radial-gradient(900px 420px at 15% 20%, rgba(255,79,163,.28), transparent 60%),
         radial-gradient(700px 360px at 80% 10%, rgba(255,127,190,.22), transparent 62%),
         linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.20));
       pointer-events:none;
     }
-    /* pastikan isi hero di atas overlay */
     .heroMain > *{position:relative; z-index:1;}
 
     .pill{
@@ -245,8 +246,6 @@
       position:relative;
       min-height: 250px;
     }
-
-    /* ✅ Gambar produk (pakai <img>) */
     .thumbImg{
       width:100%;
       height:130px;
@@ -256,7 +255,6 @@
       box-shadow: 0 12px 26px rgba(255,79,163,.10);
       display:block;
     }
-
     .product .name{margin:0; font-weight:800; font-size:14px; letter-spacing:-.2px;}
     .product .desc{margin:0; color:var(--muted); font-size:12.5px; line-height:1.5; font-weight:650;}
     .priceRow{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto;}
@@ -288,6 +286,35 @@
     }
     .offer h3{margin:0 0 6px; font-size:16px; letter-spacing:-.25px}
     .offer p{margin:0; color:var(--muted); font-weight:650; font-size:13px; line-height:1.55}
+
+    /* Gallery */
+    .galleryGrid{
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap:12px;
+    }
+    .gItem{
+      border-radius: 22px;
+      overflow:hidden;
+      border:1px solid rgba(255,79,163,.16);
+      box-shadow: 0 14px 28px rgba(30,10,20,.06);
+      background: rgba(255,255,255,.85);
+      position:relative;
+      min-height:120px;
+    }
+    .gItem img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform: scale(1.02);
+    }
+    .gItem:after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(255,255,255,.0), rgba(255,79,163,.08));
+      pointer-events:none;
+    }
 
     .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
     .quote{
@@ -408,6 +435,89 @@
       border:1px solid rgba(255,255,255,.35);
     }
 
+    /* ===== SECTION BACKGROUNDS (BANYAK) ===== */
+    #produk, #promo, #gallery, #testimoni, #faq, #kontak{
+      position: relative;
+      overflow: hidden;
+    }
+    #produk::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(255,247,251,.80), rgba(255,255,255,.65)),
+        url("https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1800&q=70");
+      background-size: cover;
+      background-position: center;
+      opacity: .18;
+      pointer-events:none;
+    }
+    #promo::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.75), rgba(255,247,251,.70)),
+        url("https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1800&q=70");
+      background-size: cover;
+      background-position: center;
+      opacity: .14;
+      pointer-events:none;
+    }
+    #gallery::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,247,251,.75)),
+        url("https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1800&q=70");
+      background-size: cover;
+      background-position: center;
+      opacity: .12;
+      pointer-events:none;
+    }
+    #testimoni::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(255,247,251,.78), rgba(255,255,255,.70)),
+        url("https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=1800&q=70");
+      background-size: cover;
+      background-position: center;
+      opacity: .12;
+      pointer-events:none;
+    }
+    #faq::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,247,251,.75)),
+        url("https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1800&q=70");
+      background-size: cover;
+      background-position: center;
+      opacity: .10;
+      pointer-events:none;
+    }
+    #kontak::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(135deg, rgba(255,247,251,.80), rgba(255,255,255,.68)),
+        url("https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?auto=format&fit=crop&w=1800&q=70");
+      background-size: cover;
+      background-position: center;
+      opacity: .12;
+      pointer-events:none;
+    }
+
+    /* Pastikan konten section di atas background */
+    #produk > .wrap,
+    #promo > .wrap,
+    #gallery > .wrap,
+    #testimoni > .wrap,
+    #faq > .wrap,
+    #kontak > .wrap{
+      position: relative;
+      z-index: 1;
+    }
+
     @media (max-width: 980px){
       .heroGrid{grid-template-columns: 1fr}
       h1{font-size:36px}
@@ -415,11 +525,13 @@
       .contact{grid-template-columns: 1fr}
       .grid2{grid-template-columns: 1fr}
       .menu{display:none}
+      .galleryGrid{grid-template-columns: repeat(3, 1fr);}
     }
     @media (max-width: 520px){
       h1{font-size:32px}
       .products{grid-template-columns: 1fr}
       .waFloat span{display:none}
+      .galleryGrid{grid-template-columns: repeat(2, 1fr);}
     }
   </style>
 </head>
@@ -439,6 +551,7 @@
         <nav class="menu" aria-label="Navigasi">
           <a href="#produk">Produk</a>
           <a href="#promo">Promo</a>
+          <a href="#gallery">Gallery</a>
           <a href="#testimoni">Testimoni</a>
           <a href="#faq">FAQ</a>
           <a href="#kontak">Kontak</a>
@@ -500,7 +613,7 @@
       <div class="sectionHead">
         <div>
           <h2>Katalog Produk</h2>
-          <p>Ini contoh. Kamu bisa ganti gambar & produk sesuai katalog toko.</p>
+          <p>Contoh produk + gambar. Nanti tinggal ganti sesuai katalog toko.</p>
         </div>
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
           <button class="btn" data-filter="all">Semua</button>
@@ -523,6 +636,20 @@
         </div>
         <a class="btn primary" id="waPromo" href="#" target="_blank" rel="noopener">Ambil Promo</a>
       </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2>Gallery</h2>
+          <p>Foto aesthetic untuk kesan premium & elegan.</p>
+        </div>
+        <a class="btn" href="#produk">🛍️ Kembali ke Produk</a>
+      </div>
+
+      <div class="galleryGrid" id="galleryGrid"></div>
     </div>
   </section>
 
@@ -671,73 +798,66 @@
       return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
     }
 
-    // ✅ Tambahkan field img untuk gambar produk
+    // Produk lengkap (16) dengan gambar
     const PRODUCTS = [
-      {
-        id:"p1", cat:"skincare",
-        name:"Glow Serum Pink Bloom",
-        desc:"Serum mencerahkan, lembap, dan bikin kulit tampak sehat.",
-        price: 79000, old: 99000, badge:"Best Seller",
-        img:"https://images.unsplash.com/photo-1612810436541-336b5e0fcd97?auto=format&fit=crop&w=1200&q=70"
-      },
-      {
-        id:"p2", cat:"skincare",
-        name:"Gentle Cleanser Soft Foam",
-        desc:"Pembersih lembut untuk harian, busa halus, tidak bikin ketarik.",
-        price: 65000, old: 85000, badge:"New",
-        img:"https://images.unsplash.com/photo-1585232351009-aa87416fca90?auto=format&fit=crop&w=1200&q=70"
-      },
-      {
-        id:"p3", cat:"makeup",
-        name:"Velvet Lip Cream Rosy",
-        desc:"Tekstur velvet, ringan, warna rosy elegan untuk daily look.",
-        price: 59000, old: 75000, badge:"Hot",
-        img:"https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1200&q=70"
-      },
-      {
-        id:"p4", cat:"makeup",
-        name:"Cushion Dewy Finish",
-        desc:"Cover natural, tampilan dewy, tahan lama untuk acara & harian.",
-        price: 129000, old: 159000, badge:"Promo",
-        img:"https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=1200&q=70"
-      },
-      {
-        id:"p5", cat:"bodycare",
-        name:"Body Lotion Pink Sakura",
-        desc:"Aroma soft, melembapkan, bikin kulit terasa halus.",
-        price: 72000, old: 90000, badge:"Hemat",
-        img:"https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?auto=format&fit=crop&w=1200&q=70"
-      },
-      {
-        id:"p6", cat:"bodycare",
-        name:"Brightening Body Scrub",
-        desc:"Scrub halus bantu angkat sel kulit mati, kulit jadi lebih cerah.",
-        price: 69000, old: 89000, badge:"Limited",
-        img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=70"
-      },
-      {
-        id:"p7", cat:"skincare",
-        name:"Sunscreen UV Shield SPF50",
-        desc:"Ringan, tidak lengket, nyaman dipakai re-apply.",
-        price: 88000, old: 109000, badge:"Wajib",
-        img:"https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=1200&q=70"
-      },
-      {
-        id:"p8", cat:"makeup",
-        name:"Blush On Sweet Pink",
-        desc:"Pigmented tapi mudah diblend, bikin pipi segar natural.",
-        price: 52000, old: 65000, badge:"Favorit",
-        img:"https://images.unsplash.com/photo-1522338140505-4f0c4fadb8a0?auto=format&fit=crop&w=1200&q=70"
-      },
+      { id:"p1", cat:"skincare", name:"Glow Serum Pink Bloom", desc:"Serum mencerahkan & melembapkan.", price:79000, old:99000, badge:"Best Seller",
+        img:"https://images.unsplash.com/photo-1612810436541-336b5e0fcd97?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p2", cat:"skincare", name:"Gentle Cleanser Soft Foam", desc:"Cleanser lembut untuk harian.", price:65000, old:85000, badge:"New",
+        img:"https://images.unsplash.com/photo-1585232351009-aa87416fca90?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p3", cat:"skincare", name:"Hydrating Toner Rose Mist", desc:"Toner segar bikin kulit plumpy.", price:69000, old:89000, badge:"Fresh",
+        img:"https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p4", cat:"skincare", name:"Moisturizer Soft Pink Cream", desc:"Krim lembap nyaman dipakai.", price:98000, old:119000, badge:"Promo",
+        img:"https://images.unsplash.com/photo-1615397349754-cfa2066a298d?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p5", cat:"skincare", name:"Sunscreen UV Shield SPF50", desc:"Ringan, tidak lengket.", price:88000, old:109000, badge:"Wajib",
+        img:"https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p6", cat:"skincare", name:"Clay Mask Pore Clean", desc:"Masker clay bantu bersihkan pori.", price:75000, old:95000, badge:"Hot",
+        img:"https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1600&q=70" },
+
+      { id:"p7", cat:"makeup", name:"Velvet Lip Cream Rosy", desc:"Velvet ringan, rosy elegan.", price:59000, old:75000, badge:"Hot",
+        img:"https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p8", cat:"makeup", name:"Cushion Dewy Finish", desc:"Cover natural, hasil dewy.", price:129000, old:159000, badge:"Promo",
+        img:"https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p9", cat:"makeup", name:"Blush On Sweet Pink", desc:"Mudah diblend, pipi segar.", price:52000, old:65000, badge:"Favorit",
+        img:"https://images.unsplash.com/photo-1522338140505-4f0c4fadb8a0?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p10", cat:"makeup", name:"Brow Pencil Natural", desc:"Alis rapi natural.", price:39000, old:52000, badge:"Best",
+        img:"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p11", cat:"makeup", name:"Mascara Lash Lift", desc:"Bulu mata lentik & tebal.", price:69000, old:89000, badge:"New",
+        img:"https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p12", cat:"makeup", name:"Setting Powder Soft Matte", desc:"Matte halus, blur pori.", price:79000, old:99000, badge:"Hemat",
+        img:"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1600&q=70" },
+
+      { id:"p13", cat:"bodycare", name:"Body Lotion Pink Sakura", desc:"Aroma soft, melembapkan.", price:72000, old:90000, badge:"Hemat",
+        img:"https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p14", cat:"bodycare", name:"Brightening Body Scrub", desc:"Scrub halus, kulit lebih cerah.", price:69000, old:89000, badge:"Limited",
+        img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p15", cat:"bodycare", name:"Hand Cream Soft Rose", desc:"Tangan lembut & wangi.", price:35000, old:49000, badge:"New",
+        img:"https://images.unsplash.com/photo-1613844433547-8949a7f60a1f?auto=format&fit=crop&w=1600&q=70" },
+      { id:"p16", cat:"bodycare", name:"Body Wash Silky Bloom", desc:"Sabun mandi lembut & segar.", price:52000, old:69000, badge:"Best",
+        img:"https://images.unsplash.com/photo-1611930022093-95c1c8011b8e?auto=format&fit=crop&w=1600&q=70" },
+    ];
+
+    const GALLERY = [
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=70",
+      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=1600&q=70",
+      "https://images.unsplash.com/photo-1522338140505-4f0c4fadb8a0?auto=format&fit=crop&w=1600&q=70",
+      "https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1600&q=70",
+      "https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&w=1600&q=70",
+      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1600&q=70",
+      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1600&q=70",
+      "https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?auto=format&fit=crop&w=1600&q=70",
+      "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=1600&q=70",
+      "https://images.unsplash.com/photo-1612810436541-336b5e0fcd97?auto=format&fit=crop&w=1600&q=70",
+      "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1600&q=70",
+      "https://images.unsplash.com/photo-1613844433547-8949a7f60a1f?auto=format&fit=crop&w=1600&q=70",
     ];
 
     const grid = document.getElementById("productGrid");
+    const galleryGrid = document.getElementById("galleryGrid");
 
     function rupiah(n){
       return new Intl.NumberFormat("id-ID", { style:"currency", currency:"IDR", maximumFractionDigits:0 }).format(n);
     }
 
-    // ✅ render pakai <img>
     function productCard(p){
       return `
         <article class="product" data-cat="${p.cat}">
@@ -761,6 +881,12 @@
         .filter(p => filter==="all" ? true : p.cat===filter)
         .map(productCard)
         .join("");
+    }
+
+    function renderGallery(){
+      galleryGrid.innerHTML = GALLERY.map(src => `
+        <div class="gItem"><img src="${src}" alt="Gallery Rasyi Cosmetik" loading="lazy"></div>
+      `).join("");
     }
 
     document.querySelectorAll("[data-filter]").forEach(btn=>{
@@ -791,6 +917,7 @@
     cartBtn.addEventListener("click", openCart);
     closeCartBtn.addEventListener("click", closeCart);
     back.addEventListener("click", closeCart);
+    clearBtn.addEventListener("click", clearCart);
 
     function updateCartUI(){
       const cart=getCart();
@@ -830,8 +957,6 @@
 
       cartTotal.textContent=rupiah(total);
     }
-
-    clearBtn.addEventListener("click", clearCart);
 
     checkoutBtn.addEventListener("click", () => {
       const cart=getCart();
@@ -881,6 +1006,7 @@
     document.getElementById("toTop").addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
 
     renderProducts("all");
+    renderGallery();
     updateCartUI();
   </script>
 </body>
